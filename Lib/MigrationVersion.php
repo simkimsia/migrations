@@ -184,6 +184,16 @@ class MigrationVersion {
 					$mapping[$version]['migrated'] = $migrated[$version];
 				}
 			} else {
+				if ($version == '1337679202_create_new_table_custom_prints_for_childl_label_project') {
+					debug('tops');
+					$class = substr($class, 0, 33);
+					debug($class);
+
+					debug($migrated[$class]);
+					exit;
+				}
+
+				
 				if (isset($migrated[$class])) {
 					$mapping[$version]['migrated'] = $migrated[$class];
 				} elseif (isset($bcMapping[$class]) && !empty($migrated[$bcMapping[$class]])) {
